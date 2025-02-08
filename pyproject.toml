@@ -36,5 +36,4 @@ build-backend = "poetry.core.masonry.api"
 ruff = "^0.9.5"                      # Outil de linting rapide pour vérifier la qualité du code Python
 pre-commit = "^4.1.0"                # Outil pour exécuter des hooks de validation avant chaque commit (par exemple, vérifier le style du code)
 sphinx = "^8.1.3"                    # Générateur de documentation à partir du code source Python
-sphinx-rtd-theme = "^3.0.1"        # Thème pour la documentation générée par Sphinx (utilisé par ReadTheDocs)
-
+sphinx-rtd-theme = "^3.0.1"          # Thème pour la documentation générée par Sphinx (utilisé par ReadTheDocs)
