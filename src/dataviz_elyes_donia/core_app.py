@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 # Importation des modules développés
 from ai_engine import generate_recommendations, detect_anomalies, call_llm_for_viz, exec_generated_code
+from kpi_dashboard import display_kpi_dashboard  # ✅ Ajout de l'importation du module KPI
 
 # Chargement de la clé API depuis le fichier .env
 from dotenv import load_dotenv
@@ -25,6 +26,7 @@ def main():
 
     pages = {
         "🏠 Accueil": "home",
+        "📈 Tableau de Bord des KPI": "kpi_dashboard",  # ✅ Ajout du tableau de bord KPI
         "💬 Génération IA Avancées": "ai_analytics"
     }
 
@@ -36,7 +38,13 @@ def main():
             **Cette application vous permet de :**
             - Générer des **recommandations IA** basées sur vos données.
             - Obtenir des **visualisations analytiques** de vos données.
+            - Suivre des **KPI en temps réel**.
         """)
+
+    elif selected_page == "📈 Tableau de Bord des KPI":
+        uploaded_file = st.file_uploader("📂 Téléchargez votre fichier de données (CSV, Excel) :", type=["csv", "xlsx"])
+        if uploaded_file:
+            display_kpi_dashboard(uploaded_file)
 
     elif selected_page == "💬 Génération IA Avancées":
         uploaded_file = st.file_uploader("📂 Téléchargez votre fichier de données pour l'analyse IA :", type=["csv", "xlsx"])
@@ -57,7 +65,6 @@ def main():
                     st.success("✅ Anomalies détectées avec succès !")
                     st.markdown(anomalies)
 
-            # ✅ Nouvelle fonctionnalité : Génération de visualisations personnalisées
             st.subheader("📊 Génération de Visualisations")
             user_prompt = st.text_area("📝 Décrivez la visualisation souhaitée :", 
                                        placeholder="Exemple : Affiche un histogramme des ventes par mois")
@@ -71,7 +78,7 @@ def main():
                             st.code(generated_code, language="python")
 
                             st.subheader("📈 Visualisation Générée")
-                            exec_generated_code(generated_code, df)  # Exécuter le code généré pour afficher le graphique
+                            exec_generated_code(generated_code, df)
 
                         except Exception as e:
                             st.error(f"❌ Erreur lors de la génération de la visualisation : {e}")
