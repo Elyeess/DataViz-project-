@@ -51,8 +51,9 @@ poetry shell
 streamlit run src/dataviz_elyes_donia/core_app.py
 ```
 
-📦 Structure du projet
+# 📦 Structure du projet
 
+```bash
 dataviz-elyes-donia/
 ├── src/
 │   └── dataviz_elyes_donia/
@@ -68,9 +69,9 @@ dataviz-elyes-donia/
 ├── pyproject.toml
 ├── poetry.lock
 └── README.md
+```
 
-
-👩‍💻 Auteurs
+## 👩‍💻 Auteurs
 Elyess Maalel - elyesmaalel@gmail.com
 Donia Tekaya - doniatekaya09@gmail.com
 
