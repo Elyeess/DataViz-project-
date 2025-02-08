@@ -20,7 +20,7 @@ def display_interpretation():
     if uploaded_file and uploaded_image:
         try:
             df = load_data(uploaded_file)
-            st.subheader("🔍 Aperçu des Données")
+            st.subheader("🔍 Aperçu des Donnees")
             display_dataframe_overview(df)
 
             st.subheader("🖼️ Aperçu de l'Image Téléchargée")
